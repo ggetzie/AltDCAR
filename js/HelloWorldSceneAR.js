@@ -8,6 +8,13 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  ViroMaterials,
+  ViroBox,
+  Viro3DObject,
+  ViroAmbientLight,
+  ViroSpotLight,
+  ViroARPlaneSelector,
+  ViroNode,
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -28,6 +35,20 @@ export default class HelloWorldSceneAR extends Component {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+        <ViroBox position={[0, -.5, -1]} scale={[.3, .3, .1]} materials={["grid"]} />
+        <ViroAmbientLight color={"#aaaaaa"} />
+        <ViroSpotLight innerAngle={5} outerAngle={90} direction={[0,-1,-.2]}
+          position={[0, 3, 1]} color="#ffffff" castsShadow={true} />
+        <ViroNode position={[0,-1,0]} dragType="FixedToWorld" onDrag={()=>{}}>
+          <Viro3DObject
+              source={require('./res/emoji_smile/emoji_smile.vrx')}
+              resources={[require('./res/emoji_smile/emoji_smile_diffuse.png'),
+                  require('./res/emoji_smile/emoji_smile_normal.png'),
+                  require('./res/emoji_smile/emoji_smile_specular.png')]}
+              position={[0, .5, 0]}
+              scale={[.2, .2, .2]}
+              type="VRX" />
+        </ViroNode>
       </ViroARScene>
     );
   }
@@ -35,7 +56,7 @@ export default class HelloWorldSceneAR extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "Alternate History DC"
+        text : "Alternate History"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
@@ -50,6 +71,12 @@ var styles = StyleSheet.create({
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',  
+  },
+});
+
+ViroMaterials.createMaterials({
+  grid: {
+    diffuseTexture: require('./res/grid_bg.jpg'),
   },
 });
 
