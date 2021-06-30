@@ -35,7 +35,7 @@ export default class HelloWorldSceneAR extends Component {
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "Hello World!"
+        text : "Alternate History DC"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
