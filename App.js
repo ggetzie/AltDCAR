@@ -19,7 +19,6 @@ import {
 } from 'react-native';
 
 import {
-  ViroVRSceneNavigator,
   ViroARSceneNavigator
 } from 'react-viro';
 
@@ -30,8 +29,8 @@ var sharedProps = {
   apiKey:"API_KEY_HERE",
 }
 
-// Sets the default scene you want for AR and VR
-var InitialARScene = require('./js/HelloWorldSceneAR');
+// Sets the default scene for AR
+var InitialARScene = require('./js/ItemViewSceneAR');
 
 var UNSET = "UNSET";
 var VR_NAVIGATOR_TYPE = "VR";
@@ -41,7 +40,7 @@ var AR_NAVIGATOR_TYPE = "AR";
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
 var defaultNavigatorType = UNSET;
 
-export default class ViroSample extends Component {
+export default class AltDCARApp extends Component {
   constructor() {
     super();
 
@@ -174,4 +173,4 @@ var localStyles = StyleSheet.create({
   }
 });
 
-module.exports = ViroSample
+module.exports = AltDCARApp
