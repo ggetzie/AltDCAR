@@ -22,11 +22,14 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
+import entries from './js/res/entries/data.json';
+
 /*
  TODO: Insert your API key below
  */
 var sharedProps = {
   apiKey:"API_KEY_HERE",
+  entries: entries
 }
 
 // Sets the default scene for AR
@@ -72,7 +75,6 @@ export default class AltDCARApp extends Component {
             Welcome to Alternative DC AR
           </Text>
           <TouchableHighlight style={localStyles.buttons}
-            // onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
             underlayColor={'#68a0ff'} >
             <Text style={localStyles.buttonText}>View Map</Text>
           </TouchableHighlight>
@@ -91,9 +93,9 @@ export default class AltDCARApp extends Component {
   _getARNavigator() {
     return (
       <View style={localStyles.outer}>
-        <ViroARSceneNavigator {...this.state.sharedProps}
+        <ViroARSceneNavigator
+          viroAppProps={this.state.sharedProps}
           initialScene={{scene: InitialARScene}}>
-          
         </ViroARSceneNavigator>
         <Button title="Back" onPress={this._exitViro}/>
       </View>

@@ -8,14 +8,6 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
-  ViroMaterials,
-  ViroBox,
-  Viro3DObject,
-  ViroAmbientLight,
-  ViroSpotLight,
-  ViroARPlaneSelector,
-  ViroNode,
-  ViroAnimations,
   ViroImage
 } from 'react-viro';
 
@@ -23,12 +15,11 @@ export default class ItemViewSceneAR extends Component {
 
   constructor() {
     super();
-
+    
     // Set initial state here
     this.state = {
-      text : "Initializing AR..."
+      text : "Initializing AR...",
     };
-
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
   }
@@ -52,17 +43,21 @@ export default class ItemViewSceneAR extends Component {
   }
 
   _onInitialized(state, reason) {
+    this.setState({
+      entries: this.props.arSceneNavigator.viroAppProps.entries
+    })
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : "Alternate History"
+        text : this.state.entries[0].title
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
+      this.setState({
+        test: "Tracking lost",
+      });
     }
   }
 }
-
-
 
 var styles = StyleSheet.create({
   helloWorldTextStyle: {
@@ -80,21 +75,6 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
   }
-});
-
-ViroMaterials.createMaterials({
-  grid: {
-    diffuseTexture: require('./res/grid_bg.jpg'),
-  },
-});
-
-ViroAnimations.registerAnimations({
-  rotate: {
-    properties: {
-      rotateY: "+=90"
-    },
-    duration: 250, //.25 seconds
-  },
 });
 
 module.exports = ItemViewSceneAR;
