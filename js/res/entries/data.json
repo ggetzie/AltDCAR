@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "title": "Enslaved Labor and the White House",
         "text": [
             "Both the White House and the Capitol Building were built to a large extent by enslaved African Americans alongside free white and black builders and craftsmen. Enslaved labor was used to clear the land, to prepare and transport building materials, and for skilled work such as carpentry or bricklaying. It is estimated that up to 100 enslaved people were used during the construction of what was then called the President’s House. Wages were paid directly to the slave owner (see, for example, the voucher below documenting payment to James Clagett). One of the slave owners was the architect of the White House, James Hoban, who received “four pounds and twelve shilling” for the carpentry work completed by African Americans he enslaved.",
@@ -8,11 +8,11 @@
         ],
         "images": [
             {
-                "filename": "e1i1.jpg",
+                "filename": "e0i0.jpg",
                 "caption": "Voucher for James Clagett for payment for work by “Negro George” for five months and three days (July-December 1794) at the President s House. National Archives, Records of the Commissioners of the City of Washington (Record Group 217)."
             },
             {
-                "filename": "e1i2.jpg",
+                "filename": "e0i1.jpg",
                 "caption": "Monthly Payroll for Carpenters and Joiners at the President’s House, February 1795. National Archives, Records of the Commissioners of the City of Washington (Record Group 217)."
             }
         ],

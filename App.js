@@ -15,7 +15,8 @@ import {
   StyleSheet,
   PixelRatio,
   TouchableHighlight,
-  Button
+  Button,
+  ScrollView
 } from 'react-native';
 
 import {
@@ -23,13 +24,20 @@ import {
 } from 'react-viro';
 
 import entries from './js/res/entries/data.json';
+import EntryDetail from './js/EntryDetail';
+
+// load all images
+// for (const e in entries) {
+//   e.images = e.images.map(img => img.image = require('./js/res/entries/images/' + img.filename))
+// }
 
 /*
  TODO: Insert your API key below
  */
 var sharedProps = {
   apiKey:"API_KEY_HERE",
-  entries: entries
+  entries: entries,
+  selectedEntry: 0
 }
 
 // Sets the default scene for AR
@@ -38,6 +46,7 @@ var InitialARScene = require('./js/ItemViewSceneAR');
 var UNSET = "UNSET";
 var VR_NAVIGATOR_TYPE = "VR";
 var AR_NAVIGATOR_TYPE = "AR";
+var DETAIL_NAVIGATOR_TYPE = "DETAIL";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -64,6 +73,8 @@ export default class AltDCARApp extends Component {
       return this._getHomeMenu();
     } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
       return this._getARNavigator();
+    } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
+      return this._getEntryDetail();
     }
   }
 
@@ -84,6 +95,11 @@ export default class AltDCARApp extends Component {
             underlayColor={'#68a0ff'} >
             <Text style={localStyles.buttonText}>Enter AR</Text>
           </TouchableHighlight>
+          <TouchableHighlight style={localStyles.buttons}
+            onPress={this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)}
+            underlayColor={'#68a0ff'}>
+              <Text style={localStyles.buttonText}>View Entry</Text>
+            </TouchableHighlight>
         </View>
       </View>
     )
@@ -93,11 +109,13 @@ export default class AltDCARApp extends Component {
   _getARNavigator() {
     return (
       <View style={localStyles.outer}>
-        <ViroARSceneNavigator
-          viroAppProps={this.state.sharedProps}
-          initialScene={{scene: InitialARScene}}>
-        </ViroARSceneNavigator>
-        <Button title="Back" onPress={this._exitViro}/>
+        <View style={localStyles.inner}>
+          <ViroARSceneNavigator
+            viroAppProps={this.state.sharedProps}
+            initialScene={{scene: InitialARScene}}>
+          </ViroARSceneNavigator>
+          <Button title="Back" onPress={this._exitViro}/>
+        </View>
       </View>
     );
   }
@@ -110,6 +128,18 @@ export default class AltDCARApp extends Component {
         navigatorType : navigatorType
       })
     }
+  }
+
+  _getEntryDetail() {
+    const index = this.state.sharedProps.selectedEntry;
+
+    return (
+      <View style={localStyles.outer}>
+        <View style={localStyles.inner}>
+          <EntryDetail entry={this.state.sharedProps.entries[index]} />
+        </View>
+      </View>
+    )
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
