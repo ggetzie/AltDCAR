@@ -134,11 +134,7 @@ export default class AltDCARApp extends Component {
     const index = this.state.sharedProps.selectedEntry;
 
     return (
-      <View style={localStyles.outer}>
-        <View style={localStyles.inner}>
-          <EntryDetail entry={this.state.sharedProps.entries[index]} />
-        </View>
-      </View>
+      <EntryDetail entry={this.state.sharedProps.entries[index]} />
     )
   }
 

@@ -1,7 +1,17 @@
 import React from 'react';
-
-import { ScrollView, View, Text, Image } from 'react-native';
+import { 
+    ScrollView, 
+    View, 
+    Text, 
+    Image, 
+    SafeAreaView,
+    StyleSheet,
+    Dimensions,
+ } from 'react-native';
 import getImage from './getImage';
+import Markdown from 'react-native-markdown-display';
+
+const WIDTH = Dimensions.get('window').width - 20;
 
 function AppImage({img}) {
     // extract entryNum and imageNum from filename
@@ -12,8 +22,8 @@ function AppImage({img}) {
     return (
         <>
             <Image 
-                source={imageObj}
-                style={{resizeMode: "contain", height: 200}}
+                source={imageObj.small}
+                style={styles.entryImage}
             />
             <Text>{img.caption}</Text>
         </>
@@ -22,28 +32,64 @@ function AppImage({img}) {
 
 function Reference({ refText }) {
     return (
-        <Text>
+        <Markdown>
             {refText}
-        </Text>
-     
+        </Markdown>
+    )
+}
+
+function SectionHead({text}) {
+    return (
+        <View style={styles.sectionHead}>
+            <Text style={styles.headingText}>{text}</Text>
+        </View>
     )
 }
 
 export default function EntryDetail({ entry }) {
-    const entryText = entry.text.map((txt, i) => <Text key={i}>{txt}</Text>)
+    const paragraphs = entry.text.map((txt, i) => <Text key={i} style={styles.entryText}>{txt}</Text>)
     const images = entry.images.map(img => <AppImage 
                                                 key={img.filename.split('.')[0]} 
                                                 img={img}
                                             />)
     const references = entry.references.map((r, i) => <Reference key={i} refText={r.text} />)
     return (
-        <ScrollView>
-            <Text>{entry.title}</Text>
-            <Text>{entry.text}</Text>
-            <Text>Images</Text>
-            {images}
-            <Text>References and Further Reading</Text>
-            {references}
-        </ScrollView>
+        <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scrollView}>
+                <SectionHead text={entry.title} />
+                {paragraphs}
+                <SectionHead text="Images" />
+                {images}
+                <SectionHead text="References and Further Reading" />
+                {references}
+            </ScrollView>
+        </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 5
+    },
+    scrollView: {
+        marginHorizontal: 5,
+    },
+    headingText: {
+        fontSize: 25,
+        fontWeight: '500'
+    },
+    sectionHead: {
+        marginBottom: 5,
+        marginTop: 10,
+    },
+    entryText: {
+        fontSize: 15,
+        marginBottom: 5,
+    },
+    entryImage: {
+        resizeMode: 'contain',
+        width: WIDTH,
+        maxHeight: 400
+    },
+})
