@@ -7,6 +7,7 @@ import {
     SafeAreaView,
     StyleSheet,
     Dimensions,
+    Button,
  } from 'react-native';
 import getImage from './getImage';
 import Markdown from 'react-native-markdown-display';
@@ -20,13 +21,15 @@ function AppImage({img}) {
         .match(/e(\d+)i(\d+)/).slice(1).map(s => Number(s));
     const imageObj = getImage(entryNum, imageNum);
     return (
-        <>
+        <View style={styles.imageView}>
             <Image 
                 source={imageObj.small}
                 style={styles.entryImage}
             />
-            <Text>{img.caption}</Text>
-        </>
+            <Text style={styles.captionText}>
+                {img.caption}
+            </Text>
+        </View>
     )
 }
 
@@ -46,7 +49,7 @@ function SectionHead({text}) {
     )
 }
 
-export default function EntryDetail({ entry }) {
+export default function EntryDetail({ entry, handleBack }) {
     const paragraphs = entry.text.map((txt, i) => <Text key={i} style={styles.entryText}>{txt}</Text>)
     const images = entry.images.map(img => <AppImage 
                                                 key={img.filename.split('.')[0]} 
@@ -63,6 +66,7 @@ export default function EntryDetail({ entry }) {
                 <SectionHead text="References and Further Reading" />
                 {references}
             </ScrollView>
+            <Button onPress={handleBack} title="Back" />
         </SafeAreaView>
     )
 }
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
         padding: 5
     },
     scrollView: {
-        marginHorizontal: 5,
+        marginHorizontal: 10,
     },
     headingText: {
         fontSize: 25,
@@ -90,6 +94,15 @@ const styles = StyleSheet.create({
     entryImage: {
         resizeMode: 'contain',
         width: WIDTH,
-        maxHeight: 400
+        maxHeight: 400,
+        marginBottom: 5
     },
+    imageView:{
+        marginBottom: 10
+    },
+    captionText: {
+        fontSize: 12,
+        fontWeight: "100",
+        padding: 10
+    }
 })

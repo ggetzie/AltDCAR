@@ -134,7 +134,10 @@ export default class AltDCARApp extends Component {
     const index = this.state.sharedProps.selectedEntry;
 
     return (
-      <EntryDetail entry={this.state.sharedProps.entries[index]} />
+      <EntryDetail 
+        entry={this.state.sharedProps.entries[index]} 
+        handleBack={this._exitViro}
+      />
     )
   }
 
