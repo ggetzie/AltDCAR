@@ -1,9 +1,3 @@
-import { Image } from 'react-native';
-
-function returnDims(width, height) {
-    return [width, height];
-}
-
 export default function getImage(entryNum, imageNum) {
     const imageIndex = [
         [

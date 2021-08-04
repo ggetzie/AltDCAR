@@ -11,6 +11,7 @@ import {
  } from 'react-native';
 import getImage from './getImage';
 import Markdown from 'react-native-markdown-display';
+import CollapsibleHeading from './components/CollapsibleHeading';
 
 const WIDTH = Dimensions.get('window').width - 20;
 
@@ -41,14 +42,6 @@ function Reference({ refText }) {
     )
 }
 
-function SectionHead({text}) {
-    return (
-        <View style={styles.sectionHead}>
-            <Text style={styles.headingText}>{text}</Text>
-        </View>
-    )
-}
-
 export default function EntryDetail({ entry, handleBack }) {
     const paragraphs = entry.text.map((txt, i) => <Text key={i} style={styles.entryText}>{txt}</Text>)
     const images = entry.images.map(img => <AppImage 
@@ -59,12 +52,24 @@ export default function EntryDetail({ entry, handleBack }) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
-                <SectionHead text={entry.title} />
-                {paragraphs}
-                <SectionHead text="Images" />
-                {images}
-                <SectionHead text="References and Further Reading" />
-                {references}
+                <CollapsibleHeading 
+                    title={entry.title}
+                    initialState={false}
+                >
+                    {paragraphs}
+                </CollapsibleHeading>
+                <CollapsibleHeading
+                    title="Images"
+                    initialState={true}
+                >
+                    {images}
+                </CollapsibleHeading>
+                <CollapsibleHeading
+                    title="References and Further Reading"
+                    initialState={true}
+                >
+                    {references}
+                </CollapsibleHeading>
             </ScrollView>
             <Button onPress={handleBack} title="Back" />
         </SafeAreaView>
@@ -82,10 +87,6 @@ const styles = StyleSheet.create({
     headingText: {
         fontSize: 25,
         fontWeight: '500'
-    },
-    sectionHead: {
-        marginBottom: 5,
-        marginTop: 10,
     },
     entryText: {
         fontSize: 15,
