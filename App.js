@@ -107,15 +107,14 @@ export default class AltDCARApp extends Component {
 
   // Returns the ViroARSceneNavigator which will start the AR experience
   _getARNavigator() {
+    this.state.sharedProps.handleEntry = this._getEntryDetail;
     return (
-      <View style={localStyles.outer}>
-        <View style={localStyles.inner}>
-          <ViroARSceneNavigator
-            viroAppProps={this.state.sharedProps}
-            initialScene={{scene: InitialARScene}}>
-          </ViroARSceneNavigator>
-          <Button title="Back" onPress={this._exitViro}/>
-        </View>
+      <View style={localStyles.viroContainer}>
+        <ViroARSceneNavigator
+          viroAppProps={this.state.sharedProps}
+          initialScene={{scene: InitialARScene}}>
+        </ViroARSceneNavigator>
+        <Button title="Back" onPress={this._exitViro}/>
       </View>
     );
   }

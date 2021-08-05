@@ -37,6 +37,7 @@ export default class ItemViewSceneAR extends Component {
           scale={[1, 1, 1]} 
           position={[0, -1, -5]} 
           source={require('./res/indicator.png')} 
+          onTouch={this.props.arSceneNavigator.viroAppProps.handleEntry}
         />
       </ViroARScene>
     );
@@ -70,7 +71,7 @@ var styles = StyleSheet.create({
 
   itemTitleTextStyle:{
     fontFamily: 'Arial',
-    fontSize: 18,
+    fontSize: 14,
     color: '#ffffff',
     textAlign: 'center',
     textAlignVertical: 'center',
