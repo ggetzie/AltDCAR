@@ -34,10 +34,10 @@ export default class ItemViewSceneAR extends Component {
           style={styles.itemTitleTextStyle} 
         />
         <ViroImage 
-          scale={[1, 1, 1]} 
-          position={[0, -1, -5]} 
+          scale={[0.25, 0.25, 0.25]} 
+          position={[0, -1, 0]} 
           source={require('./res/indicator.png')} 
-          onTouch={this.props.arSceneNavigator.viroAppProps.handleEntry}
+          onClick={this.props.arSceneNavigator.viroAppProps.handleEntry}
         />
       </ViroARScene>
     );
@@ -54,7 +54,7 @@ export default class ItemViewSceneAR extends Component {
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
       this.setState({
-        test: "Tracking lost",
+        text: "Tracking lost",
       });
     }
   }

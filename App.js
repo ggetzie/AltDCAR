@@ -16,7 +16,7 @@ import {
   PixelRatio,
   TouchableHighlight,
   Button,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 
 import {
@@ -26,14 +26,6 @@ import {
 import entries from './js/res/entries/data.json';
 import EntryDetail from './js/EntryDetail';
 
-// load all images
-// for (const e in entries) {
-//   e.images = e.images.map(img => img.image = require('./js/res/entries/images/' + img.filename))
-// }
-
-/*
- TODO: Insert your API key below
- */
 var sharedProps = {
   apiKey:"API_KEY_HERE",
   entries: entries,
@@ -104,20 +96,6 @@ export default class AltDCARApp extends Component {
       </View>
     )
   }
-
-  // Returns the ViroARSceneNavigator which will start the AR experience
-  _getARNavigator() {
-    this.state.sharedProps.handleEntry = this._getEntryDetail;
-    return (
-      <View style={localStyles.viroContainer}>
-        <ViroARSceneNavigator
-          viroAppProps={this.state.sharedProps}
-          initialScene={{scene: InitialARScene}}>
-        </ViroARSceneNavigator>
-        <Button title="Back" onPress={this._exitViro}/>
-      </View>
-    );
-  }
   
   // This function returns an anonymous/lambda function to be used
   // by the experience selector buttons
@@ -138,6 +116,24 @@ export default class AltDCARApp extends Component {
         handleBack={this._exitViro}
       />
     )
+  }
+
+  // Returns the ViroARSceneNavigator which will start the AR experience
+  _getARNavigator() {
+    return (
+      <View style={localStyles.viroContainer}>
+        <Button title="Back" onPress={this._exitViro} style={localStyles.exitButton}/>
+        <ViroARSceneNavigator
+          viroAppProps={
+            {
+                ...this.state.sharedProps,
+                handleEntry: this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)
+            }
+          }
+          initialScene={{scene: InitialARScene}}>
+        </ViroARSceneNavigator>
+      </View>
+    );
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
