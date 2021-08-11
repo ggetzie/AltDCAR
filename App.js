@@ -26,9 +26,14 @@ import {
 import entries from './js/res/entries/data.json';
 import EntryDetail from './js/EntryDetail';
 
+const entryMap = new Map();
+for (entry of entries) {
+  entryMap.set(entry.id, entry)
+}
+
 var sharedProps = {
   apiKey:"API_KEY_HERE",
-  entries: entries,
+  entries: entryMap,
   selectedEntry: 0
 }
 
@@ -56,10 +61,9 @@ export default class AltDCARApp extends Component {
     this._getHomeMenu = this._getHomeMenu.bind(this);
     this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
     this._exitViro = this._exitViro.bind(this);
+    this._selectEntry = this._selectEntry.bind(this);
   }
 
-  // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
-  // if you are building a specific type of experience.
   render() {
     if (this.state.navigatorType == UNSET){
       return this._getHomeMenu();
@@ -108,11 +112,11 @@ export default class AltDCARApp extends Component {
   }
 
   _getEntryDetail() {
-    const index = this.state.sharedProps.selectedEntry;
+    const id = this.state.sharedProps.selectedEntry;
 
     return (
       <EntryDetail 
-        entry={this.state.sharedProps.entries[index]} 
+        entry={this.state.sharedProps.entries.get(id)} 
         handleBack={this._exitViro}
       />
     )
@@ -127,7 +131,8 @@ export default class AltDCARApp extends Component {
           viroAppProps={
             {
                 ...this.state.sharedProps,
-                handleEntry: this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)
+                selectEntry: this._selectEntry,
+                navigate: this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)
             }
           }
           initialScene={{scene: InitialARScene}}>
@@ -142,7 +147,18 @@ export default class AltDCARApp extends Component {
       navigatorType : UNSET
     })
   }
+
+  _selectEntry(id) {
+    this.setState({
+      sharedProps: {
+        ...this.state.sharedProps,
+        selectedEntry: id
+      }
+    })
+  }
 }
+
+
 
 var localStyles = StyleSheet.create({
   viroContainer :{

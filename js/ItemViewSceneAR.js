@@ -10,6 +10,7 @@ import {
   ViroConstants,
   ViroImage
 } from 'react-viro';
+import EntryMarker from './components/EntryMarker';
 
 export default class ItemViewSceneAR extends Component {
 
@@ -25,9 +26,15 @@ export default class ItemViewSceneAR extends Component {
   }
 
   render() {
+    const vProps = this.props.arSceneNavigator.viroAppProps;
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText 
+        <EntryMarker 
+          entry={vProps.entries.get(0)}
+          navigate={vProps.navigate}
+          selectEntry={vProps.selectEntry}
+        />
+        {/* <ViroText 
           text={this.state.text} 
           scale={[.5, .5, .5]} 
           position={[0, 0, -1]} 
@@ -38,18 +45,16 @@ export default class ItemViewSceneAR extends Component {
           position={[0, -1, 0]} 
           source={require('./res/indicator.png')} 
           onClick={this.props.arSceneNavigator.viroAppProps.handleEntry}
-        />
+        /> */}
       </ViroARScene>
     );
   }
 
   _onInitialized(state, reason) {
-    this.setState({
-      entries: this.props.arSceneNavigator.viroAppProps.entries
-    })
+    
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({
-        text : this.state.entries[0].title
+        text : "ok"
       });
     } else if (state == ViroConstants.TRACKING_NONE) {
       // Handle loss of tracking
