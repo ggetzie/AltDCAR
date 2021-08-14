@@ -20,5 +20,198 @@
             {"text": "Arnebeck, Bob. *Slave Labor in the Capital: Building Washington’s Iconic Federal Landmarks* (Charleston, South Carolina: The History Press, 2014)."}
         ],
         "location": [38.897904039056726, -77.03658298428776]
+    },
+
+    {
+        "id": 1,
+        "title": "11 Sands St",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e1i0.jpg",
+                "caption": "11 Sands St Image 1"
+            },
+
+            {
+                "filename": "e1i0.jpg",
+                "caption": "11 Sands St Image 2"
+            }
+        ],
+        "references": [
+            {"text": "11 Sands St Reference"}
+        ],
+        "location": [22.282529217650627, 114.13051767917688]
+    },
+
+    {
+        "id": 2,
+        "title": "Outside on Sands St",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e2i0.jpg",
+                "caption": "Outside on Sands St Image 1"
+            },
+
+            {
+                "filename": "e2i1.jpg",
+                "caption": "Outside on Sands St Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Outside on Sands St Reference"}
+        ],
+        "location": [22.282524083161636, 114.13077841083548]
+    },
+
+    {
+        "id": 3,
+        "title": "Lo Pan Temple",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e3i0.jpg",
+                "caption": "Lo Pan Temple Image 1"
+            },
+
+            {
+                "filename": "e3i1.jpg",
+                "caption": "Lo Pan Temple Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Lo Pan Temple Reference"}
+        ],
+        "location": [22.283076471156775, 114.13194201450268]
+    },
+
+    {
+        "id": 4,
+        "title": "Run Run Shaw Tower",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e4i0.jpg",
+                "caption": "Run Run Shaw Tower Image 1"
+            },
+
+            {
+                "filename": "e4i1.jpg",
+                "caption": "Run Run Shaw Tower Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Run Run Shaw Tower Reference"}
+        ],
+        "location": [22.2836723151048, 114.13439063711276]
+    },
+
+    {
+        "id": 5,
+        "title": "Grand Hall, Lee Shau Kee Lecture Centre",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e5i0.jpg",
+                "caption": "Lee Shau Kee Image 1"
+            },
+
+            {
+                "filename": "e5i1.jpg",
+                "caption": "Lee Shau Kee Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Lee Shau Kee Reference"}
+        ],
+        "location": [22.28347926878788, 114.13432425583063]
+    },
+
+    {
+        "id": 6,
+        "title": "Turtle Pond",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e6i0.jpg",
+                "caption": "Turtle Pond Image 1"
+            },
+
+            {
+                "filename": "e6i1.jpg",
+                "caption": "Turtle Pond Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Turtle Pond Reference"}
+        ],
+        "location": [22.28327424338351, 114.1335184056027]
+    },
+
+    {
+        "id": 7,
+        "title": "Belcher Bay Park Workout Area",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e7i0.jpg",
+                "caption": "Belcher Bay Park Image 1"
+            },
+
+            {
+                "filename": "e7i1.jpg",
+                "caption": "Belcher Bay Image 2"
+            }
+        ],
+        "references": [
+            {"text": "Belcher Bay Park Reference"}
+        ],
+        "location": [22.285431190782226, 114.13087504641778]
+    },
+
+    {
+        "id": 8,
+        "title": "1 Hee Wong Terrace",
+        "text": [
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Lorem Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        ], 
+        "images": [
+            {
+                "filename": "e8i0.jpg",
+                "caption": "1 Hee Wong Terrace Image 1"
+            },
+
+            {
+                "filename": "e8i1.jpg",
+                "caption": "1 Hee Wong Terrace Image 2"
+            }
+        ],
+        "references": [
+            {"text": "1 Hee Wong Terrace Reference"}
+        ],
+        "location": [22.282552739419845, 114.13097226020024]
     }
+    
 ]
