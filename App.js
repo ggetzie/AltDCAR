@@ -1,12 +1,3 @@
-/**
- * Copyright (c) 2017-present, Viro, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -25,6 +16,7 @@ import {
 
 import entries from './js/res/entries/data.json';
 import EntryDetail from './js/EntryDetail';
+import HomeScreen from './js/screens/HomeScreen';
 
 const entryMap = new Map();
 for (entry of entries) {
@@ -65,6 +57,7 @@ export default class AltDCARApp extends Component {
   }
 
   render() {
+
     if (this.state.navigatorType == UNSET){
       return this._getHomeMenu();
     } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
@@ -72,6 +65,7 @@ export default class AltDCARApp extends Component {
     } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
       return this._getEntryDetail();
     }
+
   }
 
   _getHomeMenu() {

@@ -1,0 +1,35 @@
+project 'AltDCAR.xcodeproj'
+
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AltDCAR' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AltDCAR
+
+  target 'AltDCAR-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'AltDCARTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+# target 'AltDCAR-tvOS' do
+#   # Comment the next line if you don't want to use dynamic frameworks
+#   use_frameworks!
+
+#   # Pods for AltDCAR-tvOS
+
+#   target 'AltDCAR-tvOSTests' do
+#     inherit! :search_paths
+#     # Pods for testing
+#   end
+
+# end

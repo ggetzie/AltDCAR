@@ -1,0 +1,6 @@
+framework module Pods_AltDCARTests {
+  umbrella header "Pods-AltDCARTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

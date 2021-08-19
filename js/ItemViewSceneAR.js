@@ -34,18 +34,6 @@ export default class ItemViewSceneAR extends Component {
           navigate={vProps.navigate}
           selectEntry={vProps.selectEntry}
         />
-        {/* <ViroText 
-          text={this.state.text} 
-          scale={[.5, .5, .5]} 
-          position={[0, 0, -1]} 
-          style={styles.itemTitleTextStyle} 
-        />
-        <ViroImage 
-          scale={[0.25, 0.25, 0.25]} 
-          position={[0, -1, 0]} 
-          source={require('./res/indicator.png')} 
-          onClick={this.props.arSceneNavigator.viroAppProps.handleEntry}
-        /> */}
       </ViroARScene>
     );
   }

@@ -9,7 +9,7 @@ import {
     Dimensions,
     Button,
  } from 'react-native';
-import getImage from './getImage';
+import getImage from './utils/getImage';
 import Markdown from 'react-native-markdown-display';
 import CollapsibleHeading from './components/CollapsibleHeading';
 
