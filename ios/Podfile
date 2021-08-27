@@ -12,6 +12,14 @@ target 'AltDCAR' do
   target 'AltDCAR-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNCMaskedView', :path => '../node_modules/@react-native-community/masked-view'
+
+    pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+    pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
+    pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
   end
 
   target 'AltDCARTests' do

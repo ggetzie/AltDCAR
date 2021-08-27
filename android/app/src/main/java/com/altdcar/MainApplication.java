@@ -3,6 +3,11 @@ package com.altdcar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.swmansion.rnscreens.RNScreensPackage;
+import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
+import org.reactnative.maskedview.RNCMaskedViewPackage;
+import org.reactnative.maskedview.RNCMaskedViewPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.github.douglasjunior.reactNativeGetLocation.ReactNativeGetLocationPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +30,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNScreensPackage(),
+            new SafeAreaContextPackage(),
+            new ReanimatedPackage(),
+            new RNCMaskedViewPackage(),
+            new RNCMaskedViewPackage(),
             new RNGestureHandlerPackage(),
             new ReactNativeGetLocationPackage()
       );

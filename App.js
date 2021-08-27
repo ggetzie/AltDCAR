@@ -9,6 +9,8 @@ import {
   Button,
   ScrollView,
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import {
   ViroARSceneNavigator
@@ -33,12 +35,13 @@ var sharedProps = {
 var InitialARScene = require('./js/ItemViewSceneAR');
 
 var UNSET = "UNSET";
-var VR_NAVIGATOR_TYPE = "VR";
 var AR_NAVIGATOR_TYPE = "AR";
 var DETAIL_NAVIGATOR_TYPE = "DETAIL";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
+
+const AltStack = createNativeStackNavigator();
 var defaultNavigatorType = UNSET;
 
 export default class AltDCARApp extends Component {
@@ -58,13 +61,25 @@ export default class AltDCARApp extends Component {
 
   render() {
 
-    if (this.state.navigatorType == UNSET){
-      return this._getHomeMenu();
-    } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-      return this._getARNavigator();
-    } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
-      return this._getEntryDetail();
-    }
+    return (
+      <NavigationContainer>
+        <AltStack.Navigator>
+          <AltStack.Screen
+            name="Home"
+            component={HomeScreen} 
+            options={{title: "Home"}}
+            />
+        </AltStack.Navigator>
+      </NavigationContainer>
+    )
+    
+    // if (this.state.navigatorType == UNSET){
+    //   return this._getHomeMenu();
+    // } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
+    //   return this._getARNavigator();
+    // } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
+    //   return this._getEntryDetail();
+    // }
 
   }
 

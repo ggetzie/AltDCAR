@@ -6,30 +6,33 @@ import {
     TouchableHighlight
 } from 'react-native';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigator }) {
     return (
-        <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
-          <Text style={localStyles.titleText}>
-            Welcome to Alternative DC AR
-          </Text>
-          <TouchableHighlight style={localStyles.buttons}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>View Map</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>Enter AR</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'}>
-              <Text style={localStyles.buttonText}>View Entry</Text>
-            </TouchableHighlight>
-        </View>
+      <View>
+        <Text>Hello</Text>
       </View>
+      // <View style={localStyles.outer} >
+      //   <View style={localStyles.inner} >
+      //     <Text style={localStyles.titleText}>
+      //       Welcome to Alternative DC AR
+      //     </Text>
+      //     <TouchableHighlight style={localStyles.buttons}
+      //       underlayColor={'#68a0ff'} >
+      //       <Text style={localStyles.buttonText}>View Map</Text>
+      //     </TouchableHighlight>
+
+      //     <TouchableHighlight style={localStyles.buttons}
+      //       // onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
+      //       underlayColor={'#68a0ff'} >
+      //       <Text style={localStyles.buttonText}>Enter AR</Text>
+      //     </TouchableHighlight>
+      //     <TouchableHighlight style={localStyles.buttons}
+      //       // onPress={this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)}
+      //       underlayColor={'#68a0ff'}>
+      //         <Text style={localStyles.buttonText}>View Entry</Text>
+      //       </TouchableHighlight>
+      //   </View>
+      // </View>
     )
 }
 
@@ -74,16 +77,5 @@ var localStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#fff',
   },
-  exitButton : {
-    height: 50,
-    width: 100,
-    paddingTop:10,
-    paddingBottom:10,
-    marginTop: 10,
-    marginBottom: 10,
-    backgroundColor:'#68a0cf',
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#fff',
-  }
+
 });
