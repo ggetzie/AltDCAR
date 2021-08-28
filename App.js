@@ -23,19 +23,21 @@ for (entry of entries) {
   entryMap.set(entry.id, entry)
 }
 
-var sharedProps = {
-  apiKey:"API_KEY_HERE",
-  entries: entryMap,
-  selectedEntry: 0
-}
-
 // Sets the default scene for AR
 var InitialARScene = require('./js/ItemViewSceneAR');
 
 var UNSET = "UNSET";
-var VR_NAVIGATOR_TYPE = "VR";
-var AR_NAVIGATOR_TYPE = "AR";
-var DETAIL_NAVIGATOR_TYPE = "DETAIL";
+var HOME_SCREEN = "HOME";
+var AR_SCREEN = "AR";
+var DETAIL_SCREEN = "DETAIL";
+var MAP_SCREEN = "MAP";
+
+var sharedProps = {
+  apiKey:"API_KEY_HERE",
+  entries: entryMap,
+  selectedEntry: 1,
+  navStack: [UNSET]
+}
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
@@ -100,7 +102,8 @@ export default class AltDCARApp extends Component {
   _getExperienceButtonOnPress(navigatorType) {
     return () => {
       this.setState({
-        navigatorType : navigatorType
+        navigatorType : navigatorType,
+        navStack: this.state.sharedProps.navStack.concat(navigatorType)
       })
     }
   }
@@ -142,12 +145,25 @@ export default class AltDCARApp extends Component {
     })
   }
 
-  _selectEntry(id) {
+  selectEntry(id) {
     this.setState({
       sharedProps: {
         ...this.state.sharedProps,
         selectedEntry: id
       }
+    })
+  }
+
+  handleBack() {
+    const currentStack = this.state.navStack;
+    this.setState({
+      navStack: currentStack.slice(0, currentStack.length-1)
+    })
+  }
+
+  handleNav(screen) {
+    this.setState({
+      navStack: this.state.navStack.concat(screen)
     })
   }
 }
