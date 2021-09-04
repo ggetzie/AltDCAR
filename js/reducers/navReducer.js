@@ -14,12 +14,12 @@ export default function(state=initialState, action) {
         case NAV_TO_SCREEN:
             return {
                 ...state,
-                stack: state.stack.concat(action.payload.screen)
+                stack: [action.payload.screen].concat(state.stack)
             }
         case NAV_BACK:
             return {
                 ...state,
-                stack: state.stack.slice(0, state.stack.length - 1)
+                stack: state.stack.slice(1)
             }
         default:
             return state

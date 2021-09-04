@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './js/store';
+
 import {
   AppRegistry,
   Text,
@@ -14,34 +17,17 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
-import entries from './js/res/entries/data.json';
-import EntryDetail from './js/EntryDetail';
-import HomeScreen from './js/screens/HomeScreen';
-
-const entryMap = new Map();
-for (entry of entries) {
-  entryMap.set(entry.id, entry)
-}
+import NavContainer from './js/components/NavContainer';
+import EntryDetail from './js/components/EntryDetail';
 
 // Sets the default scene for AR
 var InitialARScene = require('./js/ItemViewSceneAR');
-
-var UNSET = "UNSET";
-var HOME_SCREEN = "HOME";
-var AR_SCREEN = "AR";
-var DETAIL_SCREEN = "DETAIL";
-var MAP_SCREEN = "MAP";
 
 var sharedProps = {
   apiKey:"API_KEY_HERE",
   entries: entryMap,
   selectedEntry: 1,
-  navStack: [UNSET]
 }
-
-// This determines which type of experience to launch in, or UNSET, if the user should
-// be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = UNSET;
 
 export default class AltDCARApp extends Component {
   constructor() {
@@ -59,14 +45,19 @@ export default class AltDCARApp extends Component {
   }
 
   render() {
+    return (
+      <View style={localStyles.outer}>
+        <NavContainer />
+      </View>
+    )    
 
-    if (this.state.navigatorType == UNSET){
-      return this._getHomeMenu();
-    } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-      return this._getARNavigator();
-    } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
-      return this._getEntryDetail();
-    }
+    // if (this.state.navigatorType == UNSET){
+    //   return this._getHomeMenu();
+    // } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
+    //   return this._getARNavigator();
+    // } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
+    //   return this._getEntryDetail();
+    // }
 
   }
 

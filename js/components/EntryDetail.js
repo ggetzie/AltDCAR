@@ -9,9 +9,9 @@ import {
     Dimensions,
     Button,
  } from 'react-native';
-import getImage from './utils/getImage';
+import getImage from '../utils/getImage';
 import Markdown from 'react-native-markdown-display';
-import CollapsibleHeading from './components/CollapsibleHeading';
+import CollapsibleHeading from './CollapsibleHeading';
 
 const WIDTH = Dimensions.get('window').width - 20;
 
@@ -42,7 +42,7 @@ function Reference({ refText }) {
     )
 }
 
-export default function EntryDetail({ entry, handleBack }) {
+export default function EntryDetail({ entry }) {
     const paragraphs = entry.text.map((txt, i) => <Text key={i} style={styles.entryText}>{txt}</Text>)
     const images = entry.images.map(img => <AppImage 
                                                 key={img.filename.split('.')[0]} 
