@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import { ViroText, ViroImage } from 'react-viro';
+import { NAV_TO_SCREEN, SELECT_ENTRY } from '../actions/types';
+import { DETAIL_SCREEN } from '../screens/types';
 
-export default function EntryMarker({ entry, navigate, selectEntry}) {
+export default function EntryMarker({ entry }) {
 
     return (
         <>
@@ -17,8 +20,8 @@ export default function EntryMarker({ entry, navigate, selectEntry}) {
                 position={[0, -.25, -1]} 
                 source={require('../res/indicator.png')} 
                 onClick={() => {
-                    selectEntry(entry.id);
-                    navigate();
+                    useDispatch({type: SELECT_ENTRY, payload: entry.id});
+                    useDispatch({type: NAV_TO_SCREEN, payload: DETAIL_SCREEN});
                 }}
             />
         </>

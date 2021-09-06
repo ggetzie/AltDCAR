@@ -8,8 +8,7 @@ import {
 
 export default function HomeScreen() {
     return (
-        <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
+        <>
           <Text style={localStyles.titleText}>
             Welcome to Alternative DC AR
           </Text>
@@ -28,8 +27,7 @@ export default function HomeScreen() {
             underlayColor={'#68a0ff'}>
               <Text style={localStyles.buttonText}>View Entry</Text>
             </TouchableHighlight>
-        </View>
-      </View>
+        </>
     )
 }
 

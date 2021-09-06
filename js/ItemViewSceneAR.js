@@ -1,18 +1,13 @@
-'use strict';
-
 import React, { Component } from 'react';
-
-import {StyleSheet} from 'react-native';
+import { connect } from 'react-redux';
 
 import {
   ViroARScene,
-  ViroText,
   ViroConstants,
-  ViroImage
 } from 'react-viro';
 import EntryMarker from './components/EntryMarker';
 
-export default class ItemViewSceneAR extends Component {
+class ItemViewSceneAR extends Component {
 
   constructor() {
     super();
@@ -26,13 +21,10 @@ export default class ItemViewSceneAR extends Component {
   }
 
   render() {
-    const vProps = this.props.arSceneNavigator.viroAppProps;
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <EntryMarker 
-          entry={vProps.entries.get(0)}
-          navigate={vProps.navigate}
-          selectEntry={vProps.selectEntry}
+          entry={this.props.entry}
         />
       </ViroARScene>
     );
@@ -53,22 +45,9 @@ export default class ItemViewSceneAR extends Component {
   }
 }
 
-var styles = StyleSheet.create({
-  helloWorldTextStyle: {
-    fontFamily: 'Arial',
-    fontSize: 30,
-    color: '#ffffff',
-    textAlignVertical: 'center',
-    textAlign: 'center',  
-  },
+const mapStateToProps = (state) => {
+  const entry = state.entries.index.get(state.entries.selected);
+  return entry
+}
 
-  itemTitleTextStyle:{
-    fontFamily: 'Arial',
-    fontSize: 14,
-    color: '#ffffff',
-    textAlign: 'center',
-    textAlignVertical: 'center',
-  }
-});
-
-module.exports = ItemViewSceneAR;
+export default connect(mapStateToProps)(ItemViewSceneAR)

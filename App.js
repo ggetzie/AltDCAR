@@ -25,7 +25,6 @@ var InitialARScene = require('./js/ItemViewSceneAR');
 
 var sharedProps = {
   apiKey:"API_KEY_HERE",
-  entries: entryMap,
   selectedEntry: 1,
 }
 
@@ -151,12 +150,7 @@ export default class AltDCARApp extends Component {
       navStack: currentStack.slice(0, currentStack.length-1)
     })
   }
-
-  handleNav(screen) {
-    this.setState({
-      navStack: this.state.navStack.concat(screen)
-    })
-  }
+  
 }
 
 

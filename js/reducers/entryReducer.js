@@ -2,7 +2,7 @@ import {
     SELECT_ENTRY
 } from '../actions/types';
 
-import entries from './js/res/entries/data.json';
+import entries from '../res/entries/data.json';
 
 const entryMap = new Map();
 for (entry of entries) {
