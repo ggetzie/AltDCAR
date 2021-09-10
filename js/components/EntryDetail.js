@@ -71,7 +71,6 @@ export default function EntryDetail({ entry }) {
                     {references}
                 </CollapsibleHeading>
             </ScrollView>
-            <Button onPress={handleBack} title="Back" />
         </SafeAreaView>
     )
 }

@@ -6,6 +6,7 @@ import { NAV_TO_SCREEN, SELECT_ENTRY } from '../actions/types';
 import { DETAIL_SCREEN } from '../screens/types';
 
 export default function EntryMarker({ entry }) {
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -20,8 +21,8 @@ export default function EntryMarker({ entry }) {
                 position={[0, -.25, -1]} 
                 source={require('../res/indicator.png')} 
                 onClick={() => {
-                    useDispatch({type: SELECT_ENTRY, payload: entry.id});
-                    useDispatch({type: NAV_TO_SCREEN, payload: DETAIL_SCREEN});
+                    dispatch({type: SELECT_ENTRY, payload: entry.id});
+                    dispatch({type: NAV_TO_SCREEN, payload: DETAIL_SCREEN});
                 }}
             />
         </>

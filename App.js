@@ -3,25 +3,13 @@ import { Provider } from 'react-redux';
 import store from './js/store';
 
 import {
-  AppRegistry,
-  Text,
   View,
   StyleSheet,
-  PixelRatio,
-  TouchableHighlight,
-  Button,
-  ScrollView,
 } from 'react-native';
 
-import {
-  ViroARSceneNavigator
-} from 'react-viro';
+
 
 import NavContainer from './js/components/NavContainer';
-import EntryDetail from './js/components/EntryDetail';
-
-// Sets the default scene for AR
-var InitialARScene = require('./js/ItemViewSceneAR');
 
 var sharedProps = {
   apiKey:"API_KEY_HERE",
@@ -33,122 +21,19 @@ export default class AltDCARApp extends Component {
     super();
 
     this.state = {
-      navigatorType : defaultNavigatorType,
       sharedProps : sharedProps
     }
-    this._getARNavigator = this._getARNavigator.bind(this);
-    this._getHomeMenu = this._getHomeMenu.bind(this);
-    this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
-    this._exitViro = this._exitViro.bind(this);
-    this._selectEntry = this._selectEntry.bind(this);
   }
 
   render() {
     return (
-      <View style={localStyles.outer}>
-        <NavContainer />
-      </View>
+      <Provider store={store}>
+        <View style={localStyles.outer}>
+          <NavContainer />
+        </View>
+      </Provider>
     )    
 
-    // if (this.state.navigatorType == UNSET){
-    //   return this._getHomeMenu();
-    // } else if (this.state.navigatorType == AR_NAVIGATOR_TYPE) {
-    //   return this._getARNavigator();
-    // } else if  (this.state.navigatorType ==  DETAIL_NAVIGATOR_TYPE) {
-    //   return this._getEntryDetail();
-    // }
-
-  }
-
-  _getHomeMenu() {
-    return (
-      <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
-          <Text style={localStyles.titleText}>
-            Welcome to Alternative DC AR
-          </Text>
-          <TouchableHighlight style={localStyles.buttons}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>View Map</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>Enter AR</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'}>
-              <Text style={localStyles.buttonText}>View Entry</Text>
-            </TouchableHighlight>
-        </View>
-      </View>
-    )
-  }
-  
-  // This function returns an anonymous/lambda function to be used
-  // by the experience selector buttons
-  _getExperienceButtonOnPress(navigatorType) {
-    return () => {
-      this.setState({
-        navigatorType : navigatorType,
-        navStack: this.state.sharedProps.navStack.concat(navigatorType)
-      })
-    }
-  }
-
-  _getEntryDetail() {
-    const id = this.state.sharedProps.selectedEntry;
-
-    return (
-      <EntryDetail 
-        entry={this.state.sharedProps.entries.get(id)} 
-        handleBack={this._exitViro}
-      />
-    )
-  }
-
-  // Returns the ViroARSceneNavigator which will start the AR experience
-  _getARNavigator() {
-    return (
-      <View style={localStyles.viroContainer}>
-        <Button title="Back" onPress={this._exitViro} style={localStyles.exitButton}/>
-        <ViroARSceneNavigator
-          viroAppProps={
-            {
-                ...this.state.sharedProps,
-                selectEntry: this._selectEntry,
-                navigate: this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)
-            }
-          }
-          initialScene={{scene: InitialARScene}}>
-        </ViroARSceneNavigator>
-      </View>
-    );
-  }
-
-  // This function "exits" Viro by setting the navigatorType to UNSET.
-  _exitViro() {
-    this.setState({
-      navigatorType : UNSET
-    })
-  }
-
-  selectEntry(id) {
-    this.setState({
-      sharedProps: {
-        ...this.state.sharedProps,
-        selectedEntry: id
-      }
-    })
-  }
-
-  handleBack() {
-    const currentStack = this.state.navStack;
-    this.setState({
-      navStack: currentStack.slice(0, currentStack.length-1)
-    })
   }
   
 }

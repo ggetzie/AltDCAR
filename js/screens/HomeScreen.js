@@ -1,4 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { 
+  MAP_SCREEN, 
+  DETAIL_SCREEN, 
+  AR_SCREEN } from './types';
+import {
+  NAV_TO_SCREEN
+} from '../actions/types'
 import {
     View, 
     Text, 
@@ -7,47 +15,43 @@ import {
 } from 'react-native';
 
 export default function HomeScreen() {
-    return (
-        <>
-          <Text style={localStyles.titleText}>
-            Welcome to Alternative DC AR
-          </Text>
-          <TouchableHighlight style={localStyles.buttons}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>View Map</Text>
-          </TouchableHighlight>
+  const dispatch = useDispatch();
+  return (
+      <>
+        <Text style={localStyles.titleText}>
+          Welcome to Alternative DC AR
+        </Text>
+        <TouchableHighlight 
+          style={localStyles.buttons}
+          onPress={() => dispatch({
+            type: NAV_TO_SCREEN, 
+            payload: MAP_SCREEN})}
+          underlayColor={'#68a0ff'} >
+          <Text style={localStyles.buttonText}>View Map</Text>
+        </TouchableHighlight>
 
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-            <Text style={localStyles.buttonText}>Enter AR</Text>
-          </TouchableHighlight>
-          <TouchableHighlight style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(DETAIL_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'}>
-              <Text style={localStyles.buttonText}>View Entry</Text>
-            </TouchableHighlight>
-        </>
-    )
+        <TouchableHighlight style={localStyles.buttons}
+          onPress={() => dispatch({
+            type: NAV_TO_SCREEN,
+            payload: AR_SCREEN
+          })}
+          underlayColor={'#68a0ff'} >
+          <Text style={localStyles.buttonText}>Enter AR</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight style={localStyles.buttons}
+          onPress={() => dispatch({
+            type: NAV_TO_SCREEN,
+            payload: DETAIL_SCREEN
+          })}
+          underlayColor={'#68a0ff'}>
+            <Text style={localStyles.buttonText}>View Entry</Text>
+        </TouchableHighlight>
+      </>
+  )
 }
 
 var localStyles = StyleSheet.create({
-  viroContainer :{
-    flex : 1,
-    backgroundColor: "black",
-  },
-  outer : {
-    flex : 1,
-    flexDirection: 'row',
-    alignItems:'center',
-    backgroundColor: "black",
-  },
-  inner: {
-    flex : 1,
-    flexDirection: 'column',
-    alignItems:'center',
-    backgroundColor: "black",
-  },
   titleText: {
     paddingTop: 30,
     paddingBottom: 20,
