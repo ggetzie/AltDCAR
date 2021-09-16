@@ -38,8 +38,6 @@ export default class AltDCARApp extends Component {
   
 }
 
-
-
 var localStyles = StyleSheet.create({
   viroContainer :{
     flex : 1,

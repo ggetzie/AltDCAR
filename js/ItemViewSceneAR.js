@@ -24,7 +24,7 @@ class ItemViewSceneAR extends Component {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <EntryMarker 
-          entry={this.props.entry}
+          entry={this.props.arSceneNavigator.viroAppProps.entry}
         />
       </ViroARScene>
     );
@@ -45,9 +45,4 @@ class ItemViewSceneAR extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const entry = state.entries.index.get(state.entries.selected);
-  return entry
-}
-
-export default connect(mapStateToProps)(ItemViewSceneAR)
+module.exports = ItemViewSceneAR;
