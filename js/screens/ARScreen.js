@@ -11,13 +11,14 @@ var initialScene = require('../ItemViewSceneAR');
 export default function ARScreen() {
   const entry = useSelector((state) => state.entries.index.get(state.entries.selected))
   return (
-    <View style={localStyles.viroContainer}>
-      <ViroARSceneNavigator
-        initialScene={{scene: initialScene}}
-        viroAppProps={{entry: entry}}
-        >
-      </ViroARSceneNavigator>
-    </View>
+    
+    <ViroARSceneNavigator
+      initialScene={{scene: initialScene}}
+      viroAppProps={{entry: entry}}
+      style={{zIndex: 99}}
+      >
+    </ViroARSceneNavigator>
+    
   )
 }
 

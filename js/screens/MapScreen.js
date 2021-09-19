@@ -1,8 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 export default function MapScreen(props) {
     return (
-        <Text>This will be the map screen</Text>
+        <View style={{height:300, backgroundColor: "white"}}>
+            <Text>This will be the map screen</Text>
+        </View>
     )
 }

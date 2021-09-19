@@ -3,34 +3,25 @@ import { Provider } from 'react-redux';
 import store from './js/store';
 
 import {
-  View,
+  SafeAreaView,
   StyleSheet,
 } from 'react-native';
 
-
-
 import NavContainer from './js/components/NavContainer';
-
-var sharedProps = {
-  apiKey:"API_KEY_HERE",
-  selectedEntry: 1,
-}
+import BackButton from './js/components/BackButton';
 
 export default class AltDCARApp extends Component {
   constructor() {
     super();
-
-    this.state = {
-      sharedProps : sharedProps
-    }
   }
 
   render() {
     return (
       <Provider store={store}>
-        <View style={localStyles.outer}>
+        <SafeAreaView style={localStyles.inner}>
           <NavContainer />
-        </View>
+          <BackButton />
+        </SafeAreaView>
       </Provider>
     )    
 
@@ -39,10 +30,6 @@ export default class AltDCARApp extends Component {
 }
 
 var localStyles = StyleSheet.create({
-  viroContainer :{
-    flex : 1,
-    backgroundColor: "black",
-  },
   outer : {
     flex : 1,
     flexDirection: 'row',
@@ -53,6 +40,7 @@ var localStyles = StyleSheet.create({
     flex : 1,
     flexDirection: 'column',
     alignItems:'center',
+    justifyContent: 'center',
     backgroundColor: "black",
   },
   titleText: {

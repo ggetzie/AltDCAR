@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import {
   ViroARScene,
@@ -7,7 +6,7 @@ import {
 } from 'react-viro';
 import EntryMarker from './components/EntryMarker';
 
-class ItemViewSceneAR extends Component {
+export default class ItemViewSceneAR extends Component {
 
   constructor() {
     super();

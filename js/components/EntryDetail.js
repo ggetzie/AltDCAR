@@ -50,38 +50,40 @@ export default function EntryDetail({ entry }) {
                                             />)
     const references = entry.references.map((r, i) => <Reference key={i} refText={r.text} />)
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-                <CollapsibleHeading 
-                    title={entry.title}
-                    initialState={false}
-                >
-                    {paragraphs}
-                </CollapsibleHeading>
-                <CollapsibleHeading
-                    title="Images"
-                    initialState={true}
-                >
-                    {images}
-                </CollapsibleHeading>
-                <CollapsibleHeading
-                    title="References and Further Reading"
-                    initialState={true}
-                >
-                    {references}
-                </CollapsibleHeading>
-            </ScrollView>
-        </SafeAreaView>
+        
+        <ScrollView style={styles.scrollView}>
+            <CollapsibleHeading 
+                title={entry.title}
+                initialState={false}
+            >
+                {paragraphs}
+            </CollapsibleHeading>
+            <CollapsibleHeading
+                title="Images"
+                initialState={true}
+            >
+                {images}
+            </CollapsibleHeading>
+            <CollapsibleHeading
+                title="References and Further Reading"
+                initialState={true}
+            >
+                {references}
+            </CollapsibleHeading>
+        </ScrollView>
+        
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 5
+        padding: 5,
+        backgroundColor: 'white'
     },
     scrollView: {
         marginHorizontal: 10,
+        backgroundColor: 'white'
     },
     headingText: {
         fontSize: 25,
